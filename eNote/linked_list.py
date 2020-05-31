@@ -4,8 +4,8 @@ class Node:
     A node in a singly-linked list.
     """
     def __init__(self, data=None, next=None):
-        self.data = data
-        self.next = next
+        self.data = data    # linked list node data
+        self.next = next    # reference to next node
 
 class SinglyLinkedList:
     """
@@ -19,24 +19,24 @@ class SinglyLinkedList:
         Insert a new element at the end of the singly-linked list.
         """
         new_node = Node(data)
-        if (self.head):
+        if (self.head): # check null head
             current = self.head
-            while (current.next):
+            while (current.next):   # iterate till node exists
                 current = current.next
-            current.next = new_node
+            current.next = new_node # add new node
         else:
-            self.head = new_node
+            self.head = new_node    # add head node
 
     def __str__(self):
         """
         string representation of the singly-linked list.
         """
-        nodes = []
-        current = self.head
-        while current:
-            nodes.append(str(current.data))
-            current = current.next
-        return '[' + ', '.join(nodes) + ']'
+        nodes = []  # placeholder for node data
+        current = self.head #placeholder for head
+        while current:  # iterate over all node
+            nodes.append(str(current.data)) # append node data  to list
+            current = current.next  # get next node
+        return '[' + ', '.join(nodes) + ']' # join list data to string
 
     def reverse(self):
         """
@@ -48,7 +48,7 @@ class SinglyLinkedList:
             if not current: # base case check
                 return  previous
 
-            next = current.next # next node place holder
+            next = current.next # next node placeholder
             current.next = previous # reverse the link
             previous = current  # move previous one step ahead
             current = next  # set current to next
